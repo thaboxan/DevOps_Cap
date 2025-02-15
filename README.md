@@ -34,6 +34,12 @@ The front-end code exits in the `front-end-nextjs` directory. You can run the fr
 - Run the NextJS Server: `npm run dev`
 - Your Front-end Server should be running on `http://localhost:3000`
 
+## DevOps Tools
+
+- **Containerization**:  <img src="https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white" alt="Docker"/>
+- **CI/CD**: <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white" alt="GitHub Actions"/>
+- **Cloud Storage**: <img src="https://img.shields.io/badge/Amazon_S3-569A31?style=for-the-badge&logo=amazonaws&logoColor=white" alt="AWS S3 Bucket"/>
+- **Infrastructure as Code**: <img src="https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white" alt="Terraform"/>
 
 ## Goal
 
