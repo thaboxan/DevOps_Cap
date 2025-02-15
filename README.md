@@ -37,7 +37,5 @@ The front-end code exits in the `front-end-nextjs` directory. You can run the fr
 
 ## Goal
 
-The goal is to get hands-on with DevOps practices like Containerization, CICD and monitoring.
-
-Look at the capstone project for more detials.
+The goal is to get hands-on with DevOps practices like Containerization, CI/CD and monitoring
 
