@@ -1,5 +1,57 @@
 [
     {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "argparse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "pformat",
+        "importPath": "pprint",
+        "description": "pprint",
+        "isExtraImport": true,
+        "detail": "pprint",
+        "documentation": {}
+    },
+    {
+        "label": "jmespath",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "jmespath",
+        "description": "jmespath",
+        "detail": "jmespath",
+        "documentation": {}
+    },
+    {
+        "label": "exceptions",
+        "importPath": "jmespath",
+        "description": "jmespath",
+        "isExtraImport": true,
+        "detail": "jmespath",
+        "documentation": {}
+    },
+    {
         "label": "FastAPI",
         "importPath": "fastapi",
         "description": "fastapi",
@@ -59,6 +111,15 @@
         "documentation": {}
     },
     {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
         "label": "load_dotenv",
         "importPath": "dotenv",
         "description": "dotenv",
@@ -83,11 +144,29 @@
         "documentation": {}
     },
     {
+        "label": "main",
+        "kind": 2,
+        "importPath": "api..venv.Scripts.jp",
+        "description": "api..venv.Scripts.jp",
+        "peekOfCode": "def main():\n    parser = argparse.ArgumentParser()\n    parser.add_argument('expression')\n    parser.add_argument('-f', '--filename',\n                        help=('The filename containing the input data.  '\n                              'If a filename is not given then data is '\n                              'read from stdin.'))\n    parser.add_argument('--ast', action='store_true',\n                        help=('Pretty print the AST, do not search the data.'))\n    args = parser.parse_args()",
+        "detail": "api..venv.Scripts.jp",
+        "documentation": {}
+    },
+    {
         "label": "app",
         "kind": 5,
         "importPath": "api.main",
         "description": "api.main",
-        "peekOfCode": "app = FastAPI()\n# Allowing CORS for local testing\norigins = [\n    \"http://localhost:3000\"\n]\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=origins,\n    allow_methods=[\"*\"],\n    allow_headers=[\"*\"],",
+        "peekOfCode": "app = FastAPI()\nlogging.basicConfig(level=logging.INFO)\nlogger = logging.getLogger(__name__)\n# Allowing CORS for local testing\norigins = [\n    \"http://localhost:3000\"\n]\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=origins,",
+        "detail": "api.main",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "api.main",
+        "description": "api.main",
+        "peekOfCode": "logger = logging.getLogger(__name__)\n# Allowing CORS for local testing\norigins = [\n    \"http://localhost:3000\"\n]\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=origins,\n    allow_methods=[\"*\"],\n    allow_headers=[\"*\"],",
         "detail": "api.main",
         "documentation": {}
     },
@@ -105,7 +184,7 @@
         "kind": 5,
         "importPath": "api.main",
         "description": "api.main",
-        "peekOfCode": "s3 = boto3.client(\n    's3',\n    aws_access_key_id= os.getenv(\"AWS_ACCESS_KEY\"),\n    aws_secret_access_key= os.getenv(\"AWS_SECRET_KEY\"))\nbucket_name = 'YOUR_BUCKET_NAME' # Add your bucket name here\n@app.post(\"/generate-qr/\")\nasync def generate_qr(url: str):\n    # Generate QR Code\n    qr = qrcode.QRCode(\n        version=1,",
+        "peekOfCode": "s3 = boto3.client(\n    's3',\n    aws_access_key_id= os.getenv(\"AWS_ACCESS_KEY\"),\n    aws_secret_access_key= os.getenv(\"AWS_SECRET_KEY\"))\nbucket_name = 'portfoliothabojaftacloud' # Add your bucket name here\n@app.post(\"/generate-qr/\")\nasync def generate_qr(url: str):\n    try:\n        # Ensure URL has protocol\n        if not url.startswith(('http://', 'https://')):",
         "detail": "api.main",
         "documentation": {}
     },
@@ -114,7 +193,7 @@
         "kind": 5,
         "importPath": "api.main",
         "description": "api.main",
-        "peekOfCode": "bucket_name = 'YOUR_BUCKET_NAME' # Add your bucket name here\n@app.post(\"/generate-qr/\")\nasync def generate_qr(url: str):\n    # Generate QR Code\n    qr = qrcode.QRCode(\n        version=1,\n        error_correction=qrcode.constants.ERROR_CORRECT_L,\n        box_size=10,\n        border=4,\n    )",
+        "peekOfCode": "bucket_name = 'portfoliothabojaftacloud' # Add your bucket name here\n@app.post(\"/generate-qr/\")\nasync def generate_qr(url: str):\n    try:\n        # Ensure URL has protocol\n        if not url.startswith(('http://', 'https://')):\n            url = 'https://' + url\n        # Generate QR Code\n        qr = qrcode.QRCode(\n            version=1,",
         "detail": "api.main",
         "documentation": {}
     },
