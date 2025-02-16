@@ -10,12 +10,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Login to Docker Hub
-        run: |
-          docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+      # API Docker Image
+      - name: Login to Docker Hub (API)
+        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build image
+      - name: Build image (API)
         run: docker build ./api/ -t thaboxanx/devops_api:v1
 
-      - name: Push to Docker Hub
+      - name: Push to Docker Hub (API)
         run: docker push thaboxanx/devops_api:v1
+
+      # Frontend Docker Image
+      - name: Login to Docker Hub (Frontend)
+        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build image (Frontend)
+        run: docker build ./front-end-nextjs/ -t thaboxanx/devops_frontend:v1
+
+      - name: Push to Docker Hub (Frontend)
+        run: docker push thaboxanx/devops_frontend:v1
