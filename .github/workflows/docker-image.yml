@@ -1,7 +1,7 @@
 name: Docker Image CI
 
 on:
-  [workflow_dispatch]
+  workflow_dispatch:
 
 jobs:
   publish_images:
@@ -10,7 +10,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Login to Docker Hub
+        run: |
+          docker login -u ${{ secrets.thaboxanx }} -p ${{ secrets.dckr_pat_3iK7C5whwLIdp2pTYj6QTMT1Jfs }}
+
       - name: Build image
         run: docker build ./api/ -t thaboxanx/devops_api:v1
+
       - name: Push to Docker Hub
-        run : docker push thaboxanx/devops_api:v1
+        run: docker push thaboxanx/devops_api:v1
