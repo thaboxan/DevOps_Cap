@@ -1,18 +1,16 @@
 name: Docker Image CI
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
-
-  build:
-
+  publish_images:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build image
+        run: docker build ./api/ -t thaboxanx/devops_api:v1
+      - name: Push to Docker Hub
+        run : docker push thaboxanx/devops_api:v1
