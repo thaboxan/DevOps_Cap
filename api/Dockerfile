@@ -1,4 +1,4 @@
-# Use Python 3.9 slim image as base
+# Use Python 3.9
 FROM python:3.9
 
 # Set working directory in container
